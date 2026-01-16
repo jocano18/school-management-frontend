@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  frontend-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: school__frontend_container
+    ports:
+      - "3000:80"
+    networks:
+      - school-network
+    restart: unless-stopped
+
+networks:
+  school-network:
+    driver: bridge
